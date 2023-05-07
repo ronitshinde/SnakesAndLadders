@@ -11,7 +11,9 @@ namespace SnakeAndLadderProject
         int startPosition = 0;
         public void SinglePlayerGame()
         {
-            Console.WriteLine($"Start the game at position : " + startPosition);
+            Random function = new Random();
+            int dieCount = function.Next(1, 7);
+            Console.WriteLine($"Die count after rolling die : " + dieCount);
         }
     }
 }
