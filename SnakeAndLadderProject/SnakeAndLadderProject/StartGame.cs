@@ -8,38 +8,37 @@ namespace SnakeAndLadderProject
 {
     public class StartGame
     {
-
         public void SinglePlayerGame()
         {
-            int startPosition = 0;
             int winningPosition = 100;
             int playerPosition = 0;
-
             while (playerPosition < winningPosition)
             {
                 if (playerPosition < 0)
                     playerPosition = 0;
-                //else
-                Console.WriteLine("PlayerPosition : " + playerPosition);
                 Random dieValue = new Random();
                 int dieCount = dieValue.Next(1, 7);
-                Console.WriteLine($"Die count after rolling die : " + dieCount);
+                Console.WriteLine($"Die count : " + dieCount);
                 Random moveNumber = new Random();
                 int moveOption = moveNumber.Next(0, 3);
-                Console.WriteLine("Move Option : " + moveOption);
                 switch (moveOption)
                 {
                     case 0:
+                        Console.WriteLine("Move Option : {0} - No play", moveOption);
                         playerPosition = playerPosition;
-                        Console.WriteLine($"No play - player stays in same position : " + playerPosition);
+                        Console.WriteLine($"Player position : " + playerPosition);
                         break;
                     case 1:
+                        Console.WriteLine("Move Option : {0} - Move ahead", moveOption);
                         playerPosition += dieCount;
-                        Console.WriteLine($"Moves ahead - player moves ahead with the die count value : " + playerPosition);
+                        if (playerPosition > winningPosition)
+                            playerPosition -= dieCount;
+                        Console.WriteLine($"Player position : " + playerPosition);
                         break;
                     case 2:
+                        Console.WriteLine("Move Option : {0} - Move back", moveOption);
                         playerPosition -= dieCount;
-                        Console.WriteLine($"Moves back - player moves back with the die count value : " + playerPosition);
+                        Console.WriteLine($"Player position : " + playerPosition);
                         break;
                 }
             }
