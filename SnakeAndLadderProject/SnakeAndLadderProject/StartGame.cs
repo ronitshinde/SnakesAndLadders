@@ -35,8 +35,6 @@ namespace SnakeAndLadderProject
                         break;
                     case 1:
                         playerPosition += dieCount;
-                        if(playerPosition > winningPosition)
-                            playerPosition -= dieCount;
                         Console.WriteLine($"Moves ahead - player moves ahead with the die count value : " + playerPosition);
                         break;
                     case 2:
