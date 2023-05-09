@@ -9,11 +9,30 @@ namespace SnakeAndLadderProject
     public class StartGame
     {
         int startPosition = 0;
+        int playerPosition = 0;
         public void SinglePlayerGame()
         {
-            Random function = new Random();
-            int dieCount = function.Next(1, 7);
+            Random dieValue = new Random();
+            int dieCount = dieValue.Next(1, 7);
             Console.WriteLine($"Die count after rolling die : " + dieCount);
+            Random moveNumber = new Random();
+            int moveOption = moveNumber.Next(0, 3);
+            Console.WriteLine("Move Option : " + moveOption);
+            switch (moveOption)
+            {
+                case 0:
+                    playerPosition = playerPosition;
+                    Console.WriteLine($"No play - player stays in same position : " + playerPosition);
+                    break;
+                case 1:
+                    playerPosition += dieCount;
+                    Console.WriteLine($"Moves ahead - player moves ahead with the die count value : " + playerPosition);
+                    break;
+                case 2:
+                    playerPosition -= dieCount;
+                    Console.WriteLine($"Moves back - player moves back with the die count value : " + playerPosition);
+                    break;
+            }
         }
     }
 }
