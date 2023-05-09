@@ -10,6 +10,7 @@ namespace SnakeAndLadderProject
     {
         public void SinglePlayerGame()
         {
+            int totalDicePlayed = 0;
             int winningPosition = 100;
             int playerPosition = 0;
             while (playerPosition < winningPosition)
@@ -19,6 +20,7 @@ namespace SnakeAndLadderProject
                 Random dieValue = new Random();
                 int dieCount = dieValue.Next(1, 7);
                 Console.WriteLine($"Die count : " + dieCount);
+                totalDicePlayed++;
                 Random moveNumber = new Random();
                 int moveOption = moveNumber.Next(0, 3);
                 switch (moveOption)
@@ -42,6 +44,7 @@ namespace SnakeAndLadderProject
                         break;
                 }
             }
+            Console.WriteLine("Total number of times dice played : " + totalDicePlayed);
         }
     }
 }
